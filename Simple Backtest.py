@@ -56,7 +56,7 @@ final_value = pf.value().iloc[-1]
 pnl_vs_contrib = final_value - (1_000_000.0)  # value minus initial cash
 # Adjust to show gain vs contributions:
 # Since we faked a big init cash, subtract the unused cash to get “asset value”
-shares_held = pf.positions.records_readable["Size"].sum()  # or pf.asset_flow().cumsum().iloc[-1] / price.iloc[-1]
+shares_held = shares_to_buy.cumsum().iloc[-1]
 asset_value = shares_held * price.iloc[-1]
 gain_vs_contrib = asset_value - total_contributions
 
